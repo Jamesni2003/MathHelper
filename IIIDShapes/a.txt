@@ -1,4 +1,4 @@
-import randomnumbergenerator
+
 public class cube {
 typeoproblem;
 double hieght;

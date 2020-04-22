@@ -1,47 +1,14 @@
-import java.awt.EventQueue;
+import javax.swing.*;
 
-import javax.swing.JFrame;
-import java.awt.GridBagLayout;
-import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
-import java.awt.Font;
-import javax.swing.JDesktopPane;
-import java.awt.Insets;
-import java.awt.BorderLayout;
-import javax.swing.SpringLayout;
-import java.awt.GridLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JPanel;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JSplitPane;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
-import java.awt.Component;
-import javax.swing.Box;
-import java.awt.Dimension;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import javax.swing.JToolBar;
-import javax.swing.JTabbedPane;
-import javax.swing.JLayeredPane;
-import javax.swing.JInternalFrame;
-import javax.swing.JMenu;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JTextField;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.Color;
+import IIIDShapes.Question;
+
+import java.awt.*;
+import java.awt.event.*;
 
 public class math {
-
-	private JFrame fMenu;
+	private Question question;
+	private JFrame fMenu; 
+	private JFrame fQuestion;
 
 	/**
 	 * Launch the application.
@@ -70,50 +37,105 @@ public class math {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		fQuestion = new JFrame();
+		fQuestion.setTitle("asd");
+		fQuestion.setBounds(100, 100, 750, 600);
+		fQuestion.setMinimumSize(new Dimension(750, 600));
+		fQuestion.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		fQuestion.setVisible(false);
+		fQuestion.pack();
+		fQuestion.getContentPane().setLayout(new BorderLayout(0, 0));
+		
+		JPanel pQuestion = new JPanel();
+		fQuestion.getContentPane().add(pQuestion, BorderLayout.CENTER);
+		
+		JButton btnNewButton = new JButton("Other Kind Problems");
+		btnNewButton.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseDragged(MouseEvent arg0) {
+				fMenu.setVisible(true);
+				fQuestion.setVisible(false);
+			}
+		});
+		btnNewButton.setBounds(12, 465, 155, 75);
+		pQuestion.setLayout(null);
+		pQuestion.add(btnNewButton);
+		
+		JButton btnBack = new JButton("More Problems");
+		btnBack.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});;
+		btnBack.setBounds(565, 465, 155, 75);
+		pQuestion.add(btnBack);
+		
+		JButton btnAnswer = new JButton("Show Answer");
+		btnAnswer.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+			}
+		});
+		btnAnswer.setBounds(289, 192, 132, 60);
+		pQuestion.add(btnAnswer);
+		
+		JLabel lblanswer = new JLabel("");
+		lblanswer.setVerticalAlignment(SwingConstants.TOP);
+		lblanswer.setBounds(12, 139, 678, 267);
+		pQuestion.add(lblanswer);
+	
 		fMenu = new JFrame();
-		fMenu.setTitle("name");
+		fMenu.setTitle("Math Helper");
 		fMenu.setBounds(100, 100, 750, 600);
 		fMenu.setMinimumSize(new Dimension(750, 600));
 		fMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		fMenu.setVisible(true);
 		fMenu.pack();
 		
-		JPanel panel = new JPanel();
-		fMenu.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		JPanel pMain = new JPanel();
+		fMenu.getContentPane().add(pMain, BorderLayout.CENTER);
+		pMain.setLayout(null);
 		
-		JLabel lblTitle = new JLabel("New label");
-		lblTitle.setBounds(402, 9, 56, 16);
-		panel.add(lblTitle);
+		JLabel lblTitle = new JLabel("Math Helper");
+		lblTitle.setBounds(191, 5, 274, 59);
+		lblTitle.setFont(new Font("Arial", Font.PLAIN, 50));
+		pMain.add(lblTitle);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBackground(Color.RED);
-		menuBar.setBounds(184, 251, 119, 26);
-		panel.add(menuBar);
+		menuBar.setBounds(200, 200, 100, 100);
+		pMain.add(menuBar);
 		
-		JMenu menuConcept = new JMenu("Concept");
-		menuBar.add(menuConcept);
+		JMenu mntypeproblem = new JMenu("Problems");
+		menuBar.add(mntypeproblem);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("1");
-		mntmNewMenuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				lblTitle.setText("asd");
+		JMenu mn3dshape = new JMenu("3D shapes");
+		mntypeproblem.add(mn3dshape);
+
+		JLabel lblQuestion = new JLabel("");
+		lblQuestion.setBounds(12, 13, 678, 87);
+		pQuestion.add(lblQuestion);
+		
+		JMenuItem miVolume = new JMenuItem("Volume");
+		miVolume.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				question = new Question("Volume");
+				lblQuestion.setText(question.shapes.Question());
+				fMenu.setVisible(false);
+				fQuestion.setVisible(true);
 			}
 		});
-		mntmNewMenuItem.setBackground(Color.RED);
-		menuConcept.add(mntmNewMenuItem);
+		mn3dshape.add(miVolume);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("2");
-		menuConcept.add(mntmNewMenuItem_1);
-		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				lblTitle.setText("asd");
+		JMenuItem miSurfaceArea = new JMenuItem("Surface Area");
+		miSurfaceArea.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				fMenu.setVisible(false);
+				fQuestion.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(375, 262, 97, 25);
-		panel.add(btnNewButton);
+		mn3dshape.add(miSurfaceArea);
 	}
 }
+
