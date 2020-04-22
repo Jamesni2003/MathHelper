@@ -120,7 +120,7 @@ public class math {
 		miVolume.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				question = new Question("Volume");
-				lblQuestion.setText(question.shapes.Question());
+				lblQuestion.setText(question.getShape().Question());
 				fMenu.setVisible(false);
 				fQuestion.setVisible(true);
 			}
