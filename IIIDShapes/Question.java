@@ -6,25 +6,17 @@ public class Question {
     private double answer;
     public Question(String Kind){
         x = 0/* (int) (Math.random() * 6) */;
-        if(Kind == "SA"){
-            switch(x){
-                case 0:
-                shapes = new Cube();
-                answer = shapes.SA();
-                break;
-            }
+        switch(x){
+            case 0:
+            shapes = new Cube();
+            break;
         }
-        else{
-            switch(x){
-                case 0:
-                shapes = new Cube();
-                answer = shapes.Volume();
-                break;
-            }
-        }
+        if(Kind == "SA") answer = getShape().SA();
+        else answer = getShape().Volume();
+        
     } 
     public String Answer(){
-        return "answer";
+        return "" + answer;
     }
     public IIIDShape getShape(){
         return shapes;
