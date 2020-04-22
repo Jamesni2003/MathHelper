@@ -13,7 +13,7 @@ public class Cube extends IIIDShape{
     @Override
     public double Volume() {
         // TODO Auto-generated method stub
-        return width * height *height;
+        return width * height * length;
     }
 
     @Override
