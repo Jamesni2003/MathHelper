@@ -80,12 +80,12 @@ public class math {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 
-				/* if(question.Answer(answerBox.getText())){
+				if(question.questions.getAnswer().equals(answerBox.getText())){
 					lblanswerCorr.setText("You got the answer correct");
 				}
 				else{
 					lblanswerCorr.setText("You got the answer incorrect");
-				} */
+				} 
 			}
 		});
 		btnAnswer.setBounds(289, 280, 132, 60);

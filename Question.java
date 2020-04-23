@@ -2,7 +2,7 @@ import Question.*;
 
 public class Question {
     private TypeOfProblem type = TypeOfProblem.get_Instance();
-    private QuestionFormat questions;
+    public QuestionFormat questions;
     public Question(){
         switch(type.getTypeProblem()){
             case IIIDShapeSA:
