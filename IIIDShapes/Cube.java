@@ -1,30 +1,31 @@
 package IIIDShapes;
 
 public class Cube extends IIIDShape{
-    private int length,
-                width,
-                height;
+    private int length;
     public Cube(){
-        length = (int) (Math.random() * 100 + 1);
-        width = (int) (Math.random() * 100 + 1);
-        height = (int) (Math.random() * 100 + 1);
+        length = (int) (Math.random() * 25 + 1);
     }
 
     @Override
-    public double Volume() {
+    public int Volume() {
         // TODO Auto-generated method stub
-        return width * height * length;
+        return length * length *length;
     }
 
     @Override
-    public double SA() {
+    public int SA() {
         // TODO Auto-generated method stub
-        return 0;
+        return 6 * (length * length);
     }
 
     @Override
-    public String Question() {
+    public String QuestionSA() {
         // TODO Auto-generated method stub
-        return "this is the question";
+        return "If the side lengths of a cube are" + length + ", " + length + "," + length + "then what is the surface area";
+    }
+    @Override
+    public String QuestionVolume() {
+        // TODO Auto-generated method stub
+        return "If the side lengths of a cube are" + length + ", " + length + "," + length + "then what is the volume";
     }
 }
