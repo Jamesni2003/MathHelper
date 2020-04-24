@@ -26,10 +26,10 @@ public class Question {
                 questions = new FuctionQuestion("Absolute");
             break;
             case Expo:
-                questions = new ExpoEqQuestion("EXPO");
+                questions = new FuctionQuestion("EXPO");
             break;
             case Log:
-                questions = new ExpoEqQuestion("LOG");
+                questions = new FuctionQuestion("LOG");
             break;
             default:
             break;

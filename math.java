@@ -161,11 +161,11 @@ public class math {
 		tfcustomQuestionProblem.setBounds(350, 220, 155, 75);
 
 		
-		//menu
+		//menu bar
 		JMenu mntypeproblem = new JMenu("Problems");
 		menuBar.add(mntypeproblem);
 		
-		//3d shape
+		//3d shape menu
 		JMenu mn3dshape = new JMenu("3D shapes");
 		mntypeproblem.add(mn3dshape);
 		JMenuItem miVolume = new JMenuItem("Volume");
@@ -173,15 +173,21 @@ public class math {
 		JMenuItem miSurfaceArea = new JMenuItem("Surface Area");
 		mn3dshape.add(miSurfaceArea);
 
-		//Expo/Log Eq
-		JMenu mnExpoLog = new JMenu("Expo/Log");
-		mntypeproblem.add(mnExpoLog);
+		//function menu
+		JMenu mnFunction = new JMenu("Function");
+		mntypeproblem.add(mnFunction);
+		JMenu mnSolveForX = new JMenu("Solve For X");
+		mnFunction.add(mnSolveForX);
+		JMenuItem miLinear = new JMenuItem("Linear");
+		mnSolveForX.add(miLinear);
+		JMenuItem miSquare = new JMenuItem("Square");
+		mnSolveForX.add(miSquare);
+		JMenuItem miAbsolute = new JMenuItem("Absolute");
+		mnSolveForX.add(miAbsolute);
 		JMenuItem miExpo = new JMenuItem("Exponential");
-		mnExpoLog.add(miExpo);
+		mnSolveForX.add(miExpo);
 		JMenuItem miLog = new JMenuItem("Logarithmic");
-		mnExpoLog.add(miLog);
-
-
+		mnSolveForX.add(miLog);
 
 		//function
 		btnOtherP.addMouseListener(new MouseAdapter() {

@@ -1,7 +1,14 @@
 package Question;
 
 public class TypeOfProblem {
-    public enum TypeProblem{IIIDShapeSA, IIIDShapeV, Custom, Expo, Log};
+    public enum TypeProblem{IIIDShapeSA, 
+                            IIIDShapeV,
+                            Absolute,
+                            Custom,
+                            Linear, 
+                            Square,
+                            Expo,
+                            Log};
     public static TypeOfProblem typeofproblem;
     private TypeProblem typeproblem;
     

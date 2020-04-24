@@ -7,13 +7,18 @@ public class FuctionQuestion extends QuestionFormat {
     public FuctionQuestion(String typeProblem){
         switch(typeProblem){
             case "Linear":
-            function = new Linear();
+                function = new Linear();
             break;
             case "Square":
-            function = new Square();
+                function = new Square();
             break;
             case "Absolute":
-            function = new Absolute();
+                function = new Absolute();
+            case "EXPO":
+                function = new Exponential();
+            break;
+            case "LOG":
+                function = new Log();
             break;
             default:
             break;

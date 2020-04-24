@@ -1,6 +1,6 @@
-package ExpoEq;
+package Function;
 
-public class Exponential extends Expo {
+public class Exponential extends Function {
 private double a;
 private double h;
 private double k;
@@ -15,14 +15,12 @@ private double [] answer;
         answer[0] = Math.round((Math.pow(a, (x - h)) + k)*100)/100;
     }
     @Override
-    public double[] Answer() {
-        // TODO Auto-generated method stub
+    public double[] X() {
         return answer;
     }
 
     @Override
     public String Question() {
-        // TODO Auto-generated method stub
         return "If there is an Exponential Equation " + a + "^" + "(x" +"-" + h + ")" + "+" + k + ". Solve if x is " + x + "??";
     }
 
