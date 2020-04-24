@@ -7,25 +7,22 @@ public class Sphere extends IIIDShape{
     }
 
     @Override
-    public int Volume() {
-        // TODO Auto-generated method stub
-        return (int) ((1.3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333)*(Math.PI) *radius*radius*radius);
+    public double Volume() {
+        return Math.round(((4/3) * Math.PI * Math.pow(radius, 3)) * 100) / 100;
     }
 
     @Override
-    public int SA() {
-        // TODO Auto-generated method stub
-        return (int) (4 * (Math.PI) * radius * radius);
+    public double SA() {
+        return Math.round((4 * (Math.PI) * Math.pow(radius, 2)) * 100) / 100;
     }
 
     @Override
     public String QuestionSA() {
-        // TODO Auto-generated method stub
-        return "If the Radius of a sphere is" + radius + ". What is the surface Area";
+        return "If the Radius of a sphere is" + radius + ". What is the surface Area?(Round to nearest tenth)";
     }
     @Override
     public String QuestionVolume() {
-        // TODO Auto-generated method stub
-        return  "If the Radius of a sphere is" + radius + ". What is the Volume";
+        return  "If the Radius of a sphere is" + radius + ". What is the Volume?(Round to nearest tenth)";
+        
     }
 }

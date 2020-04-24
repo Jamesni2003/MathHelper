@@ -1,13 +1,13 @@
 package IIIDShapes;
 
 public abstract class IIIDShape {
-    abstract public int Volume();
+    public abstract double Volume();
+    
+    public abstract double SA();
 
-    abstract public int SA();
+    public abstract String QuestionSA();
 
-    abstract public String QuestionSA();
-
-    abstract public String QuestionVolume();
+    public abstract String QuestionVolume();
 
 
 }

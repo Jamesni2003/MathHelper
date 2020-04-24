@@ -1,7 +1,7 @@
 package Question;
 
 public abstract class QuestionFormat{
-    abstract public String getQuestion();
+    public abstract String getQuestion();
 
-    abstract public String getAnswer();
+    public abstract double[] getAnswer();
 }

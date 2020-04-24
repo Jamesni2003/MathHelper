@@ -5,7 +5,7 @@ import IIIDShapes.*;
 public class IIIDShapeQuestion extends QuestionFormat {
     private int x;
     private IIIDShape shapes;
-    private String answer;
+    private double answer;
     private String Kind;
 
     public IIIDShapeQuestion(String Kind) {
@@ -19,11 +19,11 @@ public class IIIDShapeQuestion extends QuestionFormat {
             shapes = new Sphere();
             break;
             case 2:
-            shapes = new Sphere();
+            shapes = new Cube();
             break;
         }
-        if(Kind == "SA") answer = String.valueOf(shapes.SA());
-        else answer = String.valueOf(shapes.Volume());
+        if(Kind == "SA") answer = shapes.SA();
+        else answer = shapes.Volume();
         
     }
  
@@ -39,7 +39,10 @@ public class IIIDShapeQuestion extends QuestionFormat {
     }
 
     @Override
-    public String getAnswer() {
-        return "" + answer;
+    public double [] getAnswer() {
+        double x[] = {
+            answer
+        };
+        return x;
     }
 }

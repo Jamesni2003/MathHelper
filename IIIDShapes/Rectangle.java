@@ -11,25 +11,21 @@ public class Rectangle extends IIIDShape{
     }
 
     @Override
-    public int Volume() {
-        // TODO Auto-generated method stub
+    public double Volume() {
         return width * height *height;
     }
 
     @Override
-    public int SA() {
-        // TODO Auto-generated method stub
+    public double SA() {
         return 2 * (length * height) + 2* (length * width) + 2*(width * height);
     }
 
     @Override
     public String QuestionSA() {
-        // TODO Auto-generated method stub
         return "If the side lengths of a rectangle are" + length + ", " + width + "," + height + "then what is the surface area";
     }
     @Override
     public String QuestionVolume() {
-        // TODO Auto-generated method stub
         return "If the side lengths of a rectangle are" + length + ", " + width + "," + height + "then what is the volume";
     }
 }
