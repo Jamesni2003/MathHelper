@@ -1,13 +1,13 @@
 package Function;
 
 public class Square extends Function{
-    private int a,
-                b,
-                c;
+    private double a,
+                   b,
+                   c;
     //Integer.signum(
     public Square(){
 
-        a = (int) (Math.random() * 5 + 1) * Sign();
+        a = (int) Math.round(Math.random() * 5 + 1) * Sign();
         b = (int) (Math.random() * 20 + 1) * Sign();
         c = (int) (Math.random() * 100 + 1) * Sign();
     }
@@ -18,8 +18,8 @@ public class Square extends Function{
         
         if(determinant>0){
             double sqrt = Math.sqrt(determinant);
-            double firstRoot = Math.round((-b + sqrt)/(2*a) * 100) / 100;
-            double secondRoot = Math.round((-b - sqrt)/(2*a) * 100) / 100;
+            double firstRoot = (double) Math.round((-b + sqrt)/(2*a) * 100) / 100;
+            double secondRoot = (double) Math.round((-b - sqrt)/(2*a) * 100) / 100;
             x = new double[]{
                 firstRoot,
                 secondRoot
@@ -27,7 +27,7 @@ public class Square extends Function{
             return x;
         }else if(determinant == 0){
             double sqrt = Math.sqrt(determinant);
-            double root = Math.round((-b + sqrt)/(2*a) * 100) / 100;
+            double root = (double) Math.round((-b + sqrt)/(2*a) * 100) / 100;
             x = new double[]{root};
             return x;
         }else{
@@ -37,9 +37,10 @@ public class Square extends Function{
 
     @Override
     public String Question() {
-        String b = (this.b > 0)? "+ " + this.b : "- " + -this.b;
-        String c = (this.c > 0)? "+ " + this.c : "- " + -this.c;
+        String a = (this.a == 1)? "" : "" + (int) this.a;
+        String b = (this.b == 1)? "" : (this.b > 0)? "+ " + (int) this.b : "- " + (int) -this.b;
+        String c = (this.c == 1)? "" : (this.c > 0)? "+ " + (int) this.c : "- " + (int) -this.c;
         // TODO Auto-generated method stub
-        return "Solve the equation f(x) = " + a + "x² " + b + "x " + c + " (Answer in nearest tenth)";
+        return "Solve the equation f(x) = " + a + "x² " + b + "x " + c + " (Answer in nearest tenth)\nDon't put anything if is no solution";
     }
 }

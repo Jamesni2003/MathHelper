@@ -16,8 +16,14 @@ public class Question {
             case IIIDShapeV:
                 questions = new IIIDShapeQuestion("V");
             break;
-            case Custom:
-                
+            case Linear:
+                questions = new FuctionQuestion("Linear");
+            break;
+            case Square:
+                questions = new FuctionQuestion("Square");
+            break;
+            case Absolute:
+                questions = new FuctionQuestion("Absolute");
             break;
             default:
             break;
