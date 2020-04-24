@@ -9,11 +9,13 @@ public class Custom extends QuestionFormat{
     private String xRep;
     String[] questionParts;
     String[] formulaParts;
-    private int answer;
+    private double [] answer;
     private String stringAnswer;
     private static Custom custom;
 
     public Custom(String Question, String Formula) throws ScriptException {
+        answer = new double[1];
+        Formula = "1*" + Formula + "*1";
         xRep = Integer.toString((int) (Math.random() * 9 + 1));
         for(int i = 0; i < Question.length(); i++){
             questionParts = Question.split("/");
@@ -63,8 +65,7 @@ public class Custom extends QuestionFormat{
         doneFormula = doneFormula.replace("+x*", "+" + xRep + "*");
         doneFormula = doneFormula.replace("+x+", "+" + xRep + "+");
         System.out.println(doneFormula);
-        answer = (int) Solve.solve(doneFormula);
-        stringAnswer = String.valueOf(answer);
+        answer[0] = Math.round(Solve.solve(doneFormula) *100)/100;
         for(int i = 0; i < vars.length; i++){
             System.out.println(vars[i]);
         }
@@ -76,9 +77,9 @@ public class Custom extends QuestionFormat{
         return done;
     }
 
-    public String getAnswer() {
+    public double [] getAnswer() {
         // TODO Auto-generated method stub
-        return stringAnswer;
+        return answer;
     }
 
 }

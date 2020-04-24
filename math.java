@@ -94,11 +94,15 @@ public class math {
 		btnOtherP = new JButton("Other Kind Problems");
 		btnMoreP = new JButton("More Problems");
 		btnAnswer = new JButton("Show Answer");
+		btnBackCustom = new JButton("Back");
 		
 		//lable
 		lblTitle = new JLabel("Math Helper");
 		lblanswerCorr = new JLabel("");
 		lblQuestion = new JLabel("");
+		lblCustomDirectionsProblem = new JLabel("<html>Write out the formula to solving you question and use / where you would put a variable,<br> and make sure to have the same number of / in your question as you formula.<br> Also pu 1* at the begining of the equation and *1 at the end</html>");
+		lblCustomDirections = new JLabel("Write out your Solving x Question and where you want variables use / and dont use y= in you equation");
+
 		
 		//textfield
 		tfAnswer = new JTextField();
@@ -148,9 +152,7 @@ public class math {
 
 		lblCustomDirections.setBounds(20, 15, 750, 59);
 		lblCustomDirectionsProblem.setBounds(20, 150, 750, 59);
-		btnBackCustom = new JButton("Back");
-		lblCustomDirections = new JLabel("Write out your Solving x Question and where you want variables use / and dont use y= in you equation");
-		lblCustomDirectionsProblem = new JLabel("<html>Write out the formula to solving you question and use / where you would put a variable,<br> and make sure to have the same number of / in your question as you formula.<br> Also pu 1* at the begining of the equation and *1 at the end</html>");
+
 
 		menuBar.setBounds(200, 200, 100, 100);
 
@@ -197,16 +199,13 @@ public class math {
 		btnAnswer.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				String[] basicNumber = tfAnswer.getText().replaceAll(" ", "").split(" ");
+				String[] basicNumber = tfAnswer.getText().replaceAll(" ", "").split(",");
 				double useranswer[] = new double[basicNumber.length];
 				double answer[] = question.getAnswer();
 				for (int i = 0; i<basicNumber.length; i++) useranswer[i] = Double.valueOf(basicNumber[i]);
 				Arrays.sort(useranswer);
 				Arrays.sort(answer);
-				for(int i = 0; i < useranswer.length;i ++){
-					System.out.println(useranswer[i] + " " + answer[i]);
-				}
-				
+
 				if(Arrays.equals(answer, useranswer))
 					lblanswerCorr.setText("You got the answer correct");
 				else
@@ -255,12 +254,8 @@ public class math {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				typeofproblem.setTypeOfProblem(TypeOfProblem.TypeProblem.Custom);
-				try {
-					question = new Question(tfcustomQuestion.getText(), tfcustomQuestionProblem.getText());
-				} catch (ScriptException e1) {
-					//TODO: here can set a lable say this is a question
-				}
-				Question();
+				
+				newQuestion();
 			}
 		});
 	}
@@ -278,7 +273,14 @@ public class math {
 		fMathHelper.revalidate();
 	}
 	public void newQuestion(){
-		question = new Question();
+		if(typeofproblem.getTypeProblem() == TypeOfProblem.TypeProblem.Custom){
+			try {
+				question = new Question(tfcustomQuestion.getText(), tfcustomQuestionProblem.getText());
+			} catch (ScriptException e1) {
+				//TODO: here can set a lable say this is a question
+			}
+		}else
+			question = new Question();
 		lblQuestion.setText(question.getQuestion());
 		Question();
 	}
