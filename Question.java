@@ -25,6 +25,12 @@ public class Question {
             case Absolute:
                 questions = new FuctionQuestion("Absolute");
             break;
+            case Expo:
+                questions = new ExpoEqQuestion("EXPO");
+            break;
+            case Log:
+                questions = new ExpoEqQuestion("LOG");
+            break;
             default:
             break;
         }

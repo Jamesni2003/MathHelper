@@ -173,6 +173,16 @@ public class math {
 		JMenuItem miSurfaceArea = new JMenuItem("Surface Area");
 		mn3dshape.add(miSurfaceArea);
 
+		//Expo/Log Eq
+		JMenu mnExpoLog = new JMenu("Expo/Log");
+		mntypeproblem.add(mnExpoLog);
+		JMenuItem miExpo = new JMenuItem("Exponential");
+		mnExpoLog.add(miExpo);
+		JMenuItem miLog = new JMenuItem("Logarithmic");
+		mnExpoLog.add(miLog);
+
+
+
 		//function
 		btnOtherP.addMouseListener(new MouseAdapter() {
 			@Override
@@ -239,6 +249,20 @@ public class math {
 		miSurfaceArea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				typeofproblem.setTypeOfProblem(TypeOfProblem.TypeProblem.IIIDShapeSA);
+				newQuestion();
+			}
+		});
+
+		miLog.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				typeofproblem.setTypeOfProblem(TypeOfProblem.TypeProblem.Log);
+				newQuestion();
+			}
+		});
+
+		miExpo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				typeofproblem.setTypeOfProblem(TypeOfProblem.TypeProblem.Expo);
 				newQuestion();
 			}
 		});
