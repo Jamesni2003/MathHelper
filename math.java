@@ -1,18 +1,44 @@
 import javax.script.ScriptException;
 import javax.swing.*;
 
-import IIIDShapes.*;
 import Question.TypeOfProblem;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Arrays;
 
 public class math {
 	private Question question;
 	private TypeOfProblem typeofproblem = TypeOfProblem.get_Instance();
-	private JFrame fMenu;
-	private JFrame fQuestion;
-	private JFrame fCustom;
+	private JFrame fMathHelper;
+
+	private JPanel pMenu,
+				   pQuestion,
+				   pCustom;
+
+	private JButton btncustomMenu,
+					btnBackCustom,
+					btnOtherP,
+					btnAnswer,
+					btnMoreP,
+					btnDone;
+
+	private JLabel lblTitle,
+				   lblQuestion,
+				   lblanswerCorr,
+				   lblCustomDirections,
+				   lblCustomDirectionsProblem
+				   ;
+				   
+	private JMenuBar menuBar; 
+	private JTextField tfAnswer,
+					   tfcustomQuestion,
+					   tfcustomQuestionProblem;
+
+	
+
+
+
 
 	/**
 	 * Launch the application.
@@ -22,7 +48,7 @@ public class math {
 			public void run() {
 				try {
 					math window = new math();
-					window.fMenu.setVisible(true);
+					window.fMathHelper.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -41,201 +67,219 @@ public class math {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		fCustom = new JFrame();
-		fCustom.setTitle("Custom Question");
-		fCustom.setBounds(100, 100, 750, 600);
-		fCustom.setMinimumSize(new Dimension(750, 600));
-		fCustom.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		fCustom.setVisible(false);
-		fCustom.pack();
-		fCustom.getContentPane().setLayout(new BorderLayout(0, 0));
+		//frame
+		fMathHelper = new JFrame();
+		fMathHelper.setVisible(true);
+		fMathHelper.setTitle("Math Helper");
+		fMathHelper.setBounds(100, 100, 750, 600);
+		fMathHelper.setMinimumSize(new Dimension(750, 600));
+		fMathHelper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		fMathHelper.pack();
 
-		JPanel pCustom = new JPanel();
-		fCustom.getContentPane().add(pCustom, BorderLayout.CENTER);
+		pMenu = new JPanel();
+		pMenu.setLayout(null);
 
-		JButton btnBackCustom = new JButton("Back");
-		btnBackCustom.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				fMenu.setVisible(true);
-				fQuestion.setVisible(false);
-				fCustom.setVisible(false);
-			}
-		});
-		btnBackCustom.setBounds(12, 465, 155, 75);
-		pCustom.setLayout(null);
-		pCustom.add(btnBackCustom);
-
-
-		JLabel lblCustomDirections = new JLabel("Write out your Solving x Question and where you want variables use / and dont use y= in you equation");
-		lblCustomDirections.setBounds(20, 15, 750, 59);
-		lblCustomDirections.setFont(new Font("Arial", Font.PLAIN, 13));
-		pCustom.add(lblCustomDirections);
-
-		JTextField customQuestionInput = new JTextField();
-		customQuestionInput.setBounds(350, 70, 155, 75);
-		pCustom.add(customQuestionInput);
-
-		JLabel lblCustomDirectionsProblem = new JLabel("<html>Write out the formula to solving you question and use / where you would put a variable,<br> and make sure to have the same number of / in your question as you formula.<br> Also pu 1* at the begining of the equation and *1 at the end</html>");
-		lblCustomDirectionsProblem.setBounds(20, 150, 750, 59);
-		lblCustomDirectionsProblem.setFont(new Font("Arial", Font.PLAIN, 13));
-		pCustom.add(lblCustomDirectionsProblem);
-
-		JTextField customQuestionInputProblem = new JTextField();
-		customQuestionInputProblem.setBounds(350, 220, 155, 75);
-		pCustom.add(customQuestionInputProblem);
-
-		fQuestion = new JFrame();
-		fQuestion.setTitle("Questions");
-		fQuestion.setBounds(100, 100, 750, 600);
-		fQuestion.setMinimumSize(new Dimension(750, 600));
-		fQuestion.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		fQuestion.setVisible(false);
-		fQuestion.pack();
-		fQuestion.getContentPane().setLayout(new BorderLayout(0, 0));
-
-		JPanel pQuestion = new JPanel();
-		fQuestion.getContentPane().add(pQuestion, BorderLayout.CENTER);
-
-		JButton btnNewButton = new JButton("Other Kind Problems");
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				fMenu.setVisible(true);
-				fQuestion.setVisible(false);
-			}
-		});
-		btnNewButton.setBounds(12, 465, 155, 75);
+		pQuestion = new JPanel();
 		pQuestion.setLayout(null);
-		pQuestion.add(btnNewButton);
 
-		JLabel lblanswerCorr = new JLabel("");
-		lblanswerCorr.setVerticalAlignment(SwingConstants.TOP);
-		lblanswerCorr.setBounds(12, 139, 678, 267);
+		pCustom = new JPanel();
+		pCustom.setLayout(null);
+
+		fMathHelper.setContentPane(pMenu);
+
+		
+		btnDone = new JButton("Done");
+		//buttons
+		btncustomMenu = new JButton("Custon Question");
+		btnOtherP = new JButton("Other Kind Problems");
+		btnMoreP = new JButton("More Problems");
+		btnAnswer = new JButton("Show Answer");
+		
+		//lable
+		lblTitle = new JLabel("Math Helper");
+		lblanswerCorr = new JLabel("");
+		lblQuestion = new JLabel("");
+		
+		//textfield
+		tfAnswer = new JTextField();
+		tfcustomQuestion = new JTextField();
+		tfcustomQuestionProblem = new JTextField();
+
+		//menu bar
+		menuBar = new JMenuBar();
+		
+		//add to panal
+		pMenu.add(menuBar);
+		pMenu.add(lblTitle);
+		pMenu.add(btncustomMenu);
+
+		pQuestion.add(btnMoreP);
+		pQuestion.add(tfAnswer);
+		pQuestion.add(btnAnswer);
+		pQuestion.add(btnOtherP);
+		pQuestion.add(lblQuestion);
 		pQuestion.add(lblanswerCorr);
 
-		JTextField answerBox = new JTextField();
-		answerBox.setBounds(150, 150, 155, 75);
-		pQuestion.add(answerBox);
+		pCustom.add(btnDone);
+		pCustom.add(tfcustomQuestionProblem);
+		pCustom.add(lblCustomDirections);
+		pCustom.add(btnBackCustom);
+		pCustom.add(tfcustomQuestion);
+		pCustom.add(lblCustomDirectionsProblem);
 
-		JButton btnAnswer = new JButton("Show Answer");
+		//font
+		lblTitle.setFont(new Font("Arial", Font.PLAIN, 50));
+		lblCustomDirections.setFont(new Font("Arial", Font.PLAIN, 13));
+		lblCustomDirectionsProblem.setFont(new Font("Arial", Font.PLAIN, 13));
+
+		//layout
+		btncustomMenu.setBounds(200, 200, 132, 60);
+		btnBackCustom.setBounds(12, 465, 155, 75);
+		btnAnswer.setBounds(289, 280, 132, 60);
+		btnOtherP.setBounds(12, 465, 155, 75);
+		btnMoreP.setBounds(565, 465, 155, 75);
+		btnDone.setBounds(565, 465, 155, 75);
+
+		
+		lblQuestion.setBounds(12, 13, 678, 87);
+		lblanswerCorr.setBounds(12, 139, 678, 267);
+		lblanswerCorr.setVerticalAlignment(SwingConstants.TOP);
+		lblTitle.setBounds(191, 5, 274, 59);
+
+		lblCustomDirections.setBounds(20, 15, 750, 59);
+		lblCustomDirectionsProblem.setBounds(20, 150, 750, 59);
+		btnBackCustom = new JButton("Back");
+		lblCustomDirections = new JLabel("Write out your Solving x Question and where you want variables use / and dont use y= in you equation");
+		lblCustomDirectionsProblem = new JLabel("<html>Write out the formula to solving you question and use / where you would put a variable,<br> and make sure to have the same number of / in your question as you formula.<br> Also pu 1* at the begining of the equation and *1 at the end</html>");
+
+		menuBar.setBounds(200, 200, 100, 100);
+
+		tfAnswer.setBounds(150, 150, 155, 75);
+		tfcustomQuestion.setBounds(350, 70, 155, 75);
+		tfcustomQuestionProblem.setBounds(350, 220, 155, 75);
+
+		
+		//menu
+		JMenu mntypeproblem = new JMenu("Problems");
+		menuBar.add(mntypeproblem);
+		
+		//3d shape
+		JMenu mn3dshape = new JMenu("3D shapes");
+		mntypeproblem.add(mn3dshape);
+		JMenuItem miVolume = new JMenuItem("Volume");
+		mn3dshape.add(miVolume);
+		JMenuItem miSurfaceArea = new JMenuItem("Surface Area");
+		mn3dshape.add(miSurfaceArea);
+
+		//function
+		btnOtherP.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				Menu();
+			}
+		});
+
+		
+
+		//type answer
+		tfAnswer.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent ke) {
+				int key = ke.getKeyCode();
+				char Char = ke.getKeyChar();
+			   if ((Char >= '0' && Char <= '9') || key == 127 || key == 8 || key == 46 || Char == ',' || Char == ' ')
+				tfAnswer.setEditable(true);
+			   else
+				tfAnswer.setEditable(false);
+			}
+		});
+
 		btnAnswer.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-
-				if (question.questions.getAnswer().equals(answerBox.getText())) {
-					lblanswerCorr.setText("You got the answer correct");
-				} else {
-					lblanswerCorr.setText("You got the answer incorrect");
-					question.questions.getAnswer().equals(answerBox.getText());
-					System.out.println(answerBox.getText());
-					System.out.println(question.questions.getAnswer());
+				String[] basicNumber = tfAnswer.getText().replaceAll(" ", "").split(" ");
+				double useranswer[] = new double[basicNumber.length];
+				double answer[] = question.getAnswer();
+				for (int i = 0; i<basicNumber.length; i++) useranswer[i] = Double.valueOf(basicNumber[i]);
+				Arrays.sort(useranswer);
+				Arrays.sort(answer);
+				for(int i = 0; i < useranswer.length;i ++){
+					System.out.println(useranswer[i] + " " + answer[i]);
 				}
+				
+				if(Arrays.equals(answer, useranswer))
+					lblanswerCorr.setText("You got the answer correct");
+				else
+					lblanswerCorr.setText("You got the answer incorrect");
 			}
 		});
-		btnAnswer.setBounds(289, 280, 132, 60);
-		pQuestion.add(btnAnswer);
-
-		fMenu = new JFrame();
-		fMenu.setTitle("Math Helper");
-		fMenu.setBounds(100, 100, 750, 600);
-		fMenu.setMinimumSize(new Dimension(750, 600));
-		fMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		fMenu.setVisible(true);
-		fMenu.pack();
-
-		JPanel pMain = new JPanel();
-		fMenu.getContentPane().add(pMain, BorderLayout.CENTER);
-		pMain.setLayout(null);
-
-		JButton customQuestion = new JButton("Custon Question");
-		customQuestion.addMouseListener(new MouseAdapter() {
+		
+		//menus
+		btnBackCustom.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				fCustom.setVisible(true);
-				fMenu.setVisible(false);
-				fQuestion.setVisible(false);
+				Menu();
 			}
 		});
-		customQuestion.setBounds(200, 200, 132, 60);
-		pMain.add(customQuestion);
+		
+		btncustomMenu.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				CustomMenu();
+			}
+		});
 
-		JLabel lblTitle = new JLabel("Math Helper");
-		lblTitle.setBounds(191, 5, 274, 59);
-		lblTitle.setFont(new Font("Arial", Font.PLAIN, 50));
-		pMain.add(lblTitle);
-
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(200, 200, 100, 100);
-		pMain.add(menuBar);
-
-		JMenu mntypeproblem = new JMenu("Problems");
-		menuBar.add(mntypeproblem);
-
-		JMenu mn3dshape = new JMenu("3D shapes");
-		mntypeproblem.add(mn3dshape);
-
-		JLabel lblQuestion = new JLabel("");
-		lblQuestion.setBounds(12, 13, 678, 87);
-		pQuestion.add(lblQuestion);
-
-		JMenuItem miVolume = new JMenuItem("Volume");
+		//questions
 		miVolume.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				typeofproblem.setTypeOfProblem(TypeOfProblem.TypeProblem.IIIDShapeV);
-					question = new Question();
-				lblQuestion.setText(question.getQuestion());
-				fMenu.setVisible(false);
-				fQuestion.setVisible(true);
+				newQuestion();
 			}
 		});
-		mn3dshape.add(miVolume);
 		
-		JMenuItem miSurfaceArea = new JMenuItem("Surface Area");
 		miSurfaceArea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				typeofproblem.setTypeOfProblem(TypeOfProblem.TypeProblem.IIIDShapeSA);
-				question = new Question();
-				lblQuestion.setText(question.getQuestion());
-				fMenu.setVisible(false);
-				fQuestion.setVisible(true);
+				newQuestion();
 			}
 		});
-		mn3dshape.add(miSurfaceArea);
-		
-		JButton btnBack = new JButton("More Problems");
-		btnBack.addMouseListener(new MouseAdapter() {
+
+		btnMoreP.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				question = new Question();
-				fMenu.setVisible(false);
-				fQuestion.setVisible(true);
-				lblQuestion.setText(question.getQuestion());
+				newQuestion();
 			}
-		});;
-		btnBack.setBounds(565, 465, 155, 75);
-		pQuestion.add(btnBack);
-
-		JButton btnDone = new JButton("Done");
+		});
+		
 		btnDone.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				typeofproblem.setTypeOfProblem(TypeOfProblem.TypeProblem.Custom);
 				try {
-					question = new Question(customQuestionInput.getText(), customQuestionInputProblem.getText());
+					question = new Question(tfcustomQuestion.getText(), tfcustomQuestionProblem.getText());
 				} catch (ScriptException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					//TODO: here can set a lable say this is a question
 				}
-				lblQuestion.setText(question.getQuestion());
-				fMenu.setVisible(false);
-				fQuestion.setVisible(true);
-				fCustom.setVisible(false);
+				Question();
 			}
 		});
-		;
-		btnDone.setBounds(565, 465, 155, 75);
-		pCustom.add(btnDone);
-
+	}
+	public void Menu(){
+		fMathHelper.setContentPane(pMenu);
+		fMathHelper.revalidate();
+	}
+	public void CustomMenu(){
+		fMathHelper.setContentPane(pCustom);
+		fMathHelper.revalidate();
+	}
+	public void Question(){
+		fMathHelper.setContentPane(pQuestion);
+		lblQuestion.setText(question.getQuestion());
+		fMathHelper.revalidate();
+	}
+	public void newQuestion(){
+		question = new Question();
+		lblQuestion.setText(question.getQuestion());
+		Question();
 	}
 }

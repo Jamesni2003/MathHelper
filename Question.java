@@ -29,7 +29,7 @@ public class Question {
     public String getQuestion(){
         return questions.getQuestion();
     }
-    public String getAnswer(){
+    public double[] getAnswer() {
         return questions.getAnswer();
     }
 }
