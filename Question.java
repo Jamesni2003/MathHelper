@@ -1,8 +1,13 @@
+import javax.script.ScriptException;
+
 import Question.*;
 
 public class Question {
     private TypeOfProblem type = TypeOfProblem.get_Instance();
     public QuestionFormat questions;
+    private String customQuestion;
+    private String customFormula;
+
     public Question(){
         switch(type.getTypeProblem()){
             case IIIDShapeSA:
@@ -11,11 +16,16 @@ public class Question {
             case IIIDShapeV:
                 questions = new IIIDShapeQuestion("V");
             break;
+            case Custom:
+                
+            break;
             default:
             break;
         }
     }
-    
+    public Question(String customQuestion, String customFormula) throws ScriptException {
+        questions = new Custom(customQuestion, customFormula);
+    }
     public String getQuestion(){
         return questions.getQuestion();
     }
