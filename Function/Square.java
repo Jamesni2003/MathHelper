@@ -41,6 +41,6 @@ public class Square extends Function{
         String b = (this.b == 1)? "" : (this.b > 0)? "+ " + (int) this.b : "- " + (int) -this.b;
         String c = (this.c == 1)? "" : (this.c > 0)? "+ " + (int) this.c : "- " + (int) -this.c;
         // TODO Auto-generated method stub
-        return "Solve the equation f(x) = " + a + "x² " + b + "x " + c + " (Answer in nearest tenth)\nDon't put anything if is no solution";
+        return "Solve the equation f(x) = " + a + "x² " + b + "x " + c + " (Round to the nearest hundreth)\nDon't put anything if is no solution";
     }
 }

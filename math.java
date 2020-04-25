@@ -1,3 +1,4 @@
+import javax.imageio.ImageIO;
 import javax.script.ScriptException;
 import javax.swing.*;
 
@@ -5,6 +6,7 @@ import Question.TypeOfProblem;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.util.Arrays;
 
 public class math {
@@ -99,7 +101,7 @@ public class math {
 		btnBackCustom = new JButton("Back");
 		
 		//lable
-		lblTitle = new JLabel("Math Helper");
+		lblTitle = new JLabel("Study Buddy");
 		lblanswerCorr = new JLabel("");
 		lblQuestion = new JLabel("");
 		lblCustomDirectionsProblem = new JLabel("<html>Write out the formula to solving you question and use / where you would put a variable,<br> and make sure to have the same number of / in your question as you formula.<br></html>");
@@ -141,41 +143,44 @@ public class math {
 
 
 		//font
-		lblTitle.setFont(new Font("Arial", Font.PLAIN, 50));
+		lblTitle.setFont(new Font("Baghdad", Font.BOLD, 50));
 		lblCustomDirections.setFont(new Font("Arial", Font.PLAIN, 13));
 		lblCustomDirectionsProblem.setFont(new Font("Arial", Font.PLAIN, 13));
+		lblQuestion.setFont(new Font("Arial", Font.PLAIN, 13));
 
 		//layout
-		btncustomMenu.setBounds(200, 200, 132, 60);
+		btncustomMenu.setBounds(300, 320, 132, 60);
 		btnBackCustom.setBounds(12, 465, 155, 75);
-		btnAnswer.setBounds(289, 280, 132, 60);
+		btnAnswer.setBounds(307, 375, 132, 60);
 		btnOtherP.setBounds(12, 465, 155, 75);
 		btnMoreP.setBounds(565, 465, 155, 75);
 		btnDone.setBounds(565, 465, 155, 75);
 
 		
-		lblQuestion.setBounds(12, 13, 678, 87);
-		lblanswerCorr.setBounds(12, 139, 678, 267);
+		lblQuestion.setBounds(50, 50, 678, 87);
+		lblanswerCorr.setBounds(300, 230, 678, 267);
 		lblanswerCorr.setVerticalAlignment(SwingConstants.TOP);
-		lblTitle.setBounds(191, 5, 274, 59);
-		lblCustomImage1.setBounds(200, 200, 300, 75);
-		//lblCustomImage1.setIcon(math.class.getResource(""));
-		lblCustomImage2.setBounds(200, 200, 300, 75);
+		lblTitle.setBounds(230, 5, 330, 59);
+		lblCustomImage1.setBounds(135, 200, 500, 75);
+		lblCustomImage1.setIcon(new ImageIcon(math.class.getResource("Images/Custom1.PNG")));
+		lblCustomImage2.setBounds(220, 450, 300, 75);
+		lblCustomImage2.setIcon(new ImageIcon(math.class.getResource("Images/Custom2.PNG")));
+
 
 
 		lblCustomDirections.setBounds(60, 15, 750, 59);
 		lblCustomDirectionsProblem.setBounds(100, 260, 750, 59);
 
 
-		menuBar.setBounds(200, 200, 100, 100);
+		menuBar.setBounds(290, 200, 155, 50);
 
-		tfAnswer.setBounds(150, 150, 155, 75);
+		tfAnswer.setBounds(300, 250, 155, 75);
 		tfcustomQuestion.setBounds(220, 70, 300, 75);
 		tfcustomQuestionProblem.setBounds(220, 330, 300, 75);
 
 		
 		//menu bar
-		JMenu mntypeproblem = new JMenu("Problems");
+		JMenu mntypeproblem = new JMenu("Problems                                                   ");
 		menuBar.add(mntypeproblem);
 		
 		//3d shape menu
@@ -189,6 +194,8 @@ public class math {
 		//function menu
 		JMenu mnFunction = new JMenu("Function");
 		mntypeproblem.add(mnFunction);
+		JMenu mnExpo = new JMenu("Expo/Log");
+		mntypeproblem.add(mnExpo);
 		JMenu mnSolveForX = new JMenu("Solve For X");
 		mnFunction.add(mnSolveForX);
 		JMenuItem miLinear = new JMenuItem("Linear");
@@ -199,9 +206,9 @@ public class math {
 		mnSolveForX.add(miAbsolute);
 		//Logarithmic questions
 		JMenuItem miExpo = new JMenuItem("Exponential");
-		mnSolveForX.add(miExpo);
+		mnExpo.add(miExpo);
 		JMenuItem miLog = new JMenuItem("Logarithmic");
-		mnSolveForX.add(miLog);
+		mnExpo.add(miLog);
 
 		//function
 		btnOtherP.addMouseListener(new MouseAdapter() {

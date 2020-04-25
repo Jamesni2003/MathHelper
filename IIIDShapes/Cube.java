@@ -21,11 +21,11 @@ public class Cube extends IIIDShape{
     @Override
     public String QuestionSA() {
         // TODO Auto-generated method stub
-        return "If the side lengths of a cube are" + length + ", " + length + "," + length + "then what is the surface area";
+        return "If the side lengths of a cube are " + length + ", " + length + "," + length + " then what is the surface area?";
     }
     @Override
     public String QuestionVolume() {
         // TODO Auto-generated method stub
-        return "If the side lengths of a cube are" + length + ", " + length + "," + length + "then what is the volume";
+        return "If the side lengths of a cube are " + length + ", " + length + "," + length + " then what is the volume?";
     }
 }

@@ -18,11 +18,11 @@ public class Sphere extends IIIDShape{
 
     @Override
     public String QuestionSA() {
-        return "If the Radius of a sphere is" + radius + ". What is the surface Area?(Round to nearest tenth)";
+        return "If the Radius of a sphere is " + radius + ". What is the surface Area? (Round to the nearest hundreth)";
     }
     @Override
     public String QuestionVolume() {
-        return  "If the Radius of a sphere is" + radius + ". What is the Volume?(Round to nearest tenth)";
+        return  "If the Radius of a sphere is " + radius + ". What is the Volume? (Round to the nearest hundreth)";
         
     }
 }

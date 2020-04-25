@@ -21,7 +21,7 @@ private double [] answer;
 
     @Override
     public String Question() {
-        return "If there is an Logarithmic Equation Log base " + a + " argument " + "(x" +"-" + h + ")" + "+" + k + ". Solve for x if y is " + x + "??" + " If there is no solution put 0";
+        return "If there is an Logarithmic Equation Log base " + a + " argument " + "(x" +"-" + h + ")" + "+" + k + ". Solve for x if y is " + x + "??" + " If there is no solution put 0. (Round to the nearest hundreth)";
     }
 
 

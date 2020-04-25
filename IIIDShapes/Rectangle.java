@@ -22,10 +22,10 @@ public class Rectangle extends IIIDShape{
 
     @Override
     public String QuestionSA() {
-        return "If the side lengths of a rectangle are" + length + ", " + width + "," + height + "then what is the surface area";
+        return "If the side lengths of a rectangle are" + length + ", " + width + "," + height + " then what is the surface area?";
     }
     @Override
     public String QuestionVolume() {
-        return "If the side lengths of a rectangle are" + length + ", " + width + "," + height + "then what is the volume";
+        return "If the side lengths of a rectangle are " + length + ", " + width + "," + height + " then what is the volume?";
     }
 }
