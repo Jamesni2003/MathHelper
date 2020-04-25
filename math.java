@@ -101,7 +101,7 @@ public class math {
 		lblanswerCorr = new JLabel("");
 		lblQuestion = new JLabel("");
 		lblCustomDirectionsProblem = new JLabel("<html>Write out the formula to solving you question and use / where you would put a variable,<br> and make sure to have the same number of / in your question as you formula.<br> Also pu 1* at the begining of the equation and *1 at the end</html>");
-		lblCustomDirections = new JLabel("Write out your Solving x Question and where you want variables use / and dont use y= in you equation");
+		lblCustomDirections = new JLabel("Write out your Solving y Question and where you want variables use / and dont use y= in you equation");
 
 		
 		//textfield
@@ -184,6 +184,7 @@ public class math {
 		mnSolveForX.add(miSquare);
 		JMenuItem miAbsolute = new JMenuItem("Absolute");
 		mnSolveForX.add(miAbsolute);
+		//Logarithmic questions
 		JMenuItem miExpo = new JMenuItem("Exponential");
 		mnSolveForX.add(miExpo);
 		JMenuItem miLog = new JMenuItem("Logarithmic");

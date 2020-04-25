@@ -15,6 +15,7 @@ public class Custom extends QuestionFormat{
 
     public Custom(String Question, String Formula) throws ScriptException {
         answer = new double[1];
+        Question = Question + " ";
         Formula = "1*" + Formula + "*1";
         xRep = Integer.toString((int) (Math.random() * 9 + 1));
         for(int i = 0; i < Question.length(); i++){
@@ -31,7 +32,7 @@ public class Custom extends QuestionFormat{
                 done = done + questionParts[m] + vars[m];
 
         }
-        done = done + questionParts[questionParts.length - 1] + " if x is " + (xRep) + "?";
+        done = done + questionParts[questionParts.length - 1] + " solve if x is " + (xRep) + "?";
 
         for(int i = 0; i < Formula.length(); i++){
             formulaParts = Formula.split("/");
