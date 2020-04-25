@@ -27,7 +27,9 @@ public class math {
 				   lblQuestion,
 				   lblanswerCorr,
 				   lblCustomDirections,
-				   lblCustomDirectionsProblem
+				   lblCustomDirectionsProblem,
+				   lblCustomImage1,
+				   lblCustomImage2
 				   ;
 				   
 	private JMenuBar menuBar; 
@@ -100,10 +102,13 @@ public class math {
 		lblTitle = new JLabel("Math Helper");
 		lblanswerCorr = new JLabel("");
 		lblQuestion = new JLabel("");
-		lblCustomDirectionsProblem = new JLabel("<html>Write out the formula to solving you question and use / where you would put a variable,<br> and make sure to have the same number of / in your question as you formula.<br> Also pu 1* at the begining of the equation and *1 at the end</html>");
-		lblCustomDirections = new JLabel("Write out your Solving y Question and where you want variables use / and dont use y= in you equation");
+		lblCustomDirectionsProblem = new JLabel("<html>Write out the formula to solving you question and use / where you would put a variable,<br> and make sure to have the same number of / in your question as you formula.<br></html>");
+		lblCustomDirections = new JLabel("Write out your Solving y Question and where you want variables use / and we will add solve if x is _ ??");
+		lblCustomImage1 = new JLabel("");
+		lblCustomImage2 = new JLabel("");
 
-		
+
+
 		//textfield
 		tfAnswer = new JTextField();
 		tfcustomQuestion = new JTextField();
@@ -130,6 +135,10 @@ public class math {
 		pCustom.add(btnBackCustom);
 		pCustom.add(tfcustomQuestion);
 		pCustom.add(lblCustomDirectionsProblem);
+		pCustom.add(lblCustomImage2);
+		pCustom.add(lblCustomImage1);
+
+
 
 		//font
 		lblTitle.setFont(new Font("Arial", Font.PLAIN, 50));
@@ -149,16 +158,20 @@ public class math {
 		lblanswerCorr.setBounds(12, 139, 678, 267);
 		lblanswerCorr.setVerticalAlignment(SwingConstants.TOP);
 		lblTitle.setBounds(191, 5, 274, 59);
+		lblCustomImage1.setBounds(200, 200, 300, 75);
+		//lblCustomImage1.setIcon(math.class.getResource(""));
+		lblCustomImage2.setBounds(200, 200, 300, 75);
 
-		lblCustomDirections.setBounds(20, 15, 750, 59);
-		lblCustomDirectionsProblem.setBounds(20, 150, 750, 59);
+
+		lblCustomDirections.setBounds(60, 15, 750, 59);
+		lblCustomDirectionsProblem.setBounds(100, 260, 750, 59);
 
 
 		menuBar.setBounds(200, 200, 100, 100);
 
 		tfAnswer.setBounds(150, 150, 155, 75);
-		tfcustomQuestion.setBounds(350, 70, 155, 75);
-		tfcustomQuestionProblem.setBounds(350, 220, 155, 75);
+		tfcustomQuestion.setBounds(220, 70, 300, 75);
+		tfcustomQuestionProblem.setBounds(220, 330, 300, 75);
 
 		
 		//menu bar
