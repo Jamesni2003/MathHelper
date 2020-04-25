@@ -229,7 +229,7 @@ public class math {
 			public void keyPressed(KeyEvent ke) {
 				int key = ke.getKeyCode();
 				char Char = ke.getKeyChar();
-			   if ((Char >= '0' && Char <= '9') || key == 127 || key == 8 || key == 46 || Char == ',' || Char == ' ')
+			   if ((Char >= '0' && Char <= '9') || key == 127 || key == 8 || Char == ',' || Char == ' ' || Char == '-' || Char == '.')
 				tfAnswer.setEditable(true);
 			   else
 				tfAnswer.setEditable(false);
@@ -240,16 +240,21 @@ public class math {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				String[] basicNumber = tfAnswer.getText().replaceAll(" ", "").split(",");
-				double useranswer[] = new double[basicNumber.length];
+				double useranswer[];
 				double answer[] = question.getAnswer();
-				for (int i = 0; i<basicNumber.length; i++) useranswer[i] = Double.valueOf(basicNumber[i]);
-				Arrays.sort(useranswer);
-				Arrays.sort(answer);
-
-				if(Arrays.equals(answer, useranswer))
-					lblanswerCorr.setText("You got the answer correct");
-				else
-					lblanswerCorr.setText("You got the answer incorrect");
+				try{
+					useranswer = new double[basicNumber.length];
+					for (int i = 0; i<basicNumber.length; i++) useranswer[i] = Double.valueOf(basicNumber[i]);
+					Arrays.sort(useranswer);
+					Arrays.sort(answer);
+					if(Arrays.equals(answer, useranswer)) lblanswerCorr.setText("You got the answer correct");
+					else lblanswerCorr.setText("You got the answer incorrect");
+				}catch(Exception e){
+					useranswer = (tfAnswer.getText().equals(""))? new double[]{0} : new double[]{1};
+					answer = (answer == null)? new double[]{0} : question.getAnswer();
+					if(useranswer[0] == answer[0]) lblanswerCorr.setText("You got the answer correct");
+					else lblanswerCorr.setText("You got the answer incorrect");
+				}
 			}
 		});
 		
