@@ -98,17 +98,17 @@ public class math {
 		btnDone = new JButton("Done");
 		//buttons
 		btncustomMenu = new JButton("Custon Question");
-		btnOtherP = new JButton("Other Kind Problems");
+		btnOtherP = new JButton("Other Kinds of Problems");
 		btnMoreP = new JButton("More Problems");
-		btnAnswer = new JButton("Show Answer");
+		btnAnswer = new JButton("Check Answer");
 		btnBackCustom = new JButton("Back");
 		
 		//lable
 		lblTitle = new JLabel("Study Buddy");
 		lblanswerCorr = new JLabel("");
 		lblQuestion = new JLabel("");
-		lblCustomDirectionsProblem = new JLabel("<html>Write out the formula to solving you question and use / where you would put a variable,<br> and make sure to have the same number of / in your question as you formula.<br></html>");
-		lblCustomDirections = new JLabel("Write out your Solving y Question and where you want variables use / and we will add solve if x is _ ??");
+		lblCustomDirectionsProblem = new JLabel("<html>Write out the formula to solving your question and use / where you would put a variable,<br> and make sure to have the same number of / in your question as there are in your formula.<br></html>");
+		lblCustomDirections = new JLabel("Write out your Solving for y Question and where you want variables use / and we will add solve if x is _ ??");
 		
 		url = math.class.getResource("/Images/Custom1.PNG");
 		icon = new ImageIcon(url);
@@ -301,7 +301,7 @@ public class math {
 				newQuestion();
 			}
 		});
-		
+
 		miLog.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				typeofproblem.setTypeOfProblem(TypeOfProblem.TypeProblem.Log);
