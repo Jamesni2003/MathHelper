@@ -7,6 +7,7 @@ import Question.TypeOfProblem;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.net.URL;
 import java.util.Arrays;
 
 public class math {
@@ -71,6 +72,8 @@ public class math {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		URL url;
+		ImageIcon icon;
 		//frame
 		fMathHelper = new JFrame();
 		fMathHelper.setVisible(true);
@@ -106,10 +109,14 @@ public class math {
 		lblQuestion = new JLabel("");
 		lblCustomDirectionsProblem = new JLabel("<html>Write out the formula to solving you question and use / where you would put a variable,<br> and make sure to have the same number of / in your question as you formula.<br></html>");
 		lblCustomDirections = new JLabel("Write out your Solving y Question and where you want variables use / and we will add solve if x is _ ??");
-		lblCustomImage1 = new JLabel("");
-		lblCustomImage2 = new JLabel("");
+		
+		url = math.class.getResource("/Images/Custom1.PNG");
+		icon = new ImageIcon(url);
+		lblCustomImage1 = new JLabel(icon);
 
-
+		url = math.class.getResource("/Images/Custom2.png");
+		icon = new ImageIcon(url);
+		lblCustomImage2 = new JLabel(icon);
 
 		//textfield
 		tfAnswer = new JTextField();
@@ -162,11 +169,7 @@ public class math {
 		lblanswerCorr.setVerticalAlignment(SwingConstants.TOP);
 		lblTitle.setBounds(230, 5, 330, 59);
 		lblCustomImage1.setBounds(135, 200, 500, 75);
-		lblCustomImage1.setIcon(new ImageIcon(math.class.getResource("Images/Custom1.PNG")));
 		lblCustomImage2.setBounds(220, 450, 300, 75);
-		lblCustomImage2.setIcon(new ImageIcon(math.class.getResource("Images/Custom2.PNG")));
-
-
 
 		lblCustomDirections.setBounds(60, 15, 750, 59);
 		lblCustomDirectionsProblem.setBounds(100, 260, 750, 59);
