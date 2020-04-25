@@ -283,6 +283,25 @@ public class math {
 			}
 		});
 
+		miLinear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				typeofproblem.setTypeOfProblem(TypeOfProblem.TypeProblem.Linear);
+				newQuestion();
+			}
+		});
+		miSquare.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				typeofproblem.setTypeOfProblem(TypeOfProblem.TypeProblem.Square);
+				newQuestion();
+			}
+		});
+		miAbsolute.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				typeofproblem.setTypeOfProblem(TypeOfProblem.TypeProblem.Absolute);
+				newQuestion();
+			}
+		});
+		
 		miLog.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				typeofproblem.setTypeOfProblem(TypeOfProblem.TypeProblem.Log);
