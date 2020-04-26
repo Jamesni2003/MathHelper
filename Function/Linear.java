@@ -18,7 +18,7 @@ public class Linear extends Function{
     public String Question() {
         String m = (this.m == 1)? "" : "" + (int)this.m;
         String b = (this.m == 1)? "" : (this.b > 0)? "+ " + (int) this.b : "- " + (int) -this.b;
-        return "Solve the equation f(x) = " + m + "x " + b + " (Round to the nearest hundreth)";
+        return "Solve the equation for the x intercept f(x) = " + m + "x " + b + " (Round to the nearest hundreth)";
     }
     public static void main(String[] args) {
         Linear x = new Linear();

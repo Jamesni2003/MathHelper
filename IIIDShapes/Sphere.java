@@ -8,7 +8,7 @@ public class Sphere extends IIIDShape{
 
     @Override
     public double Volume() {
-        return (double) Math.round(((4/3) * Math.PI * Math.pow(radius, 3)) * 100) / 100;
+        return (double) Math.round(((4.0/3.0) * Math.PI * Math.pow(radius, 3)) * 100) / 100;
     }
 
     @Override
