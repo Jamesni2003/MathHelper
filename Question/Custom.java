@@ -10,8 +10,6 @@ public class Custom extends QuestionFormat{
     String[] questionParts;
     String[] formulaParts;
     private double [] answer;
-    private String stringAnswer;
-    private static Custom custom;
 
     public Custom(String Question, String Formula) throws ScriptException {
         answer = new double[1];

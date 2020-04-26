@@ -5,8 +5,6 @@ import Question.*;
 public class Question {
     private TypeOfProblem type = TypeOfProblem.get_Instance();
     public QuestionFormat questions;
-    private String customQuestion;
-    private String customFormula;
 
     public Question(){
         switch(type.getTypeProblem()){

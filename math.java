@@ -1,4 +1,3 @@
-import javax.imageio.ImageIO;
 import javax.script.ScriptException;
 import javax.swing.*;
 
@@ -6,7 +5,6 @@ import Question.TypeOfProblem;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
 import java.net.URL;
 import java.util.Arrays;
 
